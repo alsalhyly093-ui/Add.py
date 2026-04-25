@@ -1,0 +1,82 @@
+from flet import *
+def main(page:Page):
+    page.title = 'ali'
+    page.scroll = 'auto'
+    page.window.top = 1
+    page.window.left= 960
+    page.window.width = 390
+    page.window.height = 740
+    page.bgcolor = 'white'
+    page.theme_mode = ThemeMode.LIGHT
+
+
+    ########### Feilds ###########
+    tname = TextField(label='اسم الطالب',icon=icons.PERSON,rtl=True,height=38)
+    tmail = TextField(label='البريد الالكتروني',icon=icons.MAIL,rtl=True,height=38)
+    tphone = TextField(label='رقم الهاتف',icon=icons.PHONE,rtl=True,height=38)
+    taddress = TextField(label='العنوان او السكن',icon=icons.LOCATION_CITY,rtl=True,height=38)
+    ##############################
+    
+    ########### marks ###########
+    marktext = Text("Marks Student - علامات الطالب",text_align='center',weight='bold')
+    mathmatic = TextField(label="قرآن كريم",width=110,rtl=True,height=38)
+    arabic = TextField(label='إسلامية',width=110,rtl=True,height=38)
+    france = TextField(label='لغة عربية',width=110,rtl=True,height=38)
+    english = TextField(label='العلوم',width=110,rtl=True,height=38)
+    draw = TextField(label="التربية الوطنية",width=110,rtl=True,height=38)
+    chemistry = TextField(label='الرياضيات',width=110,rtl=True,height=38)
+    ##############################
+    
+    addbuttn = ElevatedButton(
+        "اضافة طالب جديد",
+        width=170,
+        style=ButtonStyle(bgcolor='blue',color='white',padding=15),
+        on_click=...
+    )
+    
+    showbuttn = ElevatedButton(
+        "عرض كل الطلاب",
+        width=170,
+        style=ButtonStyle(bgcolor='blue',color='white',padding=15),
+        on_click=...
+    )
+    
+    
+    page.add(
+        Row([
+            Image(src="home.gif",width=280)
+            ],alignment=MainAxisAlignment.CENTER),
+        
+        Row([
+            Text("تطبيق الطالب والمعلم في جيبك",size=20,font_family="IBM Plex Sans Arabic",color='black')
+            ],alignment=MainAxisAlignment.CENTER),
+        
+        Row([
+            Text(" عدد الطلاب المسجلين : ",size=20,font_family="IBM Plex Sans Arabic",color='blue'),
+            Text("1",size=20,font_family="IBM Plex Sans Arabic",color='black'),
+            ],alignment=MainAxisAlignment.CENTER,rtl=True),
+        tname,
+        tmail,
+        tphone,
+        taddress,
+        
+        Row([
+            marktext
+            ],alignment=MainAxisAlignment.CENTER,rtl=True),
+        
+        Row([
+            mathmatic,arabic,france
+            ],alignment=MainAxisAlignment.CENTER,rtl=True),
+        
+        Row([
+            english,draw,chemistry
+            ],alignment=MainAxisAlignment.CENTER,rtl=True),
+        
+        Row([
+            addbuttn,showbuttn
+        ],alignment=MainAxisAlignment.CENTER,rtl=True)
+        
+    )
+
+    page.update()
+app(main)
